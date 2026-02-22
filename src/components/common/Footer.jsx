@@ -1,10 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
 
 const Footer = () => {
+  const location = useLocation();
   const { FiMessageSquare, FiShield, FiHeart } = FiIcons;
+  const handleSamePageNavigation = (targetPath, sectionId) => (event) => {
+    if (location.pathname !== targetPath) return;
+
+    event.preventDefault();
+
+    if (sectionId) {
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8 px-6">
@@ -30,13 +46,32 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-6">Platform</h4>
             <ul className="space-y-4">
               <li>
-                <Link to="/" className="text-gray-500 hover:text-indigo-600 text-sm transition-colors">Practice Roles</Link>
+                <Link 
+                  to="/" 
+                  state={{ scrollTo: 'practice-roles' }} 
+                  onClick={handleSamePageNavigation('/', 'practice-roles')}
+                  className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
+                >
+                  Practice Roles
+                </Link>
               </li>
               <li>
-                <Link to="/tips" className="text-gray-500 hover:text-indigo-600 text-sm transition-colors">Interview Tips</Link>
+                <Link 
+                  to="/tips" 
+                  onClick={handleSamePageNavigation('/tips')}
+                  className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
+                >
+                  Interview Tips
+                </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-500 hover:text-indigo-600 text-sm transition-colors">About InterQ</Link>
+                <Link 
+                  to="/about" 
+                  onClick={handleSamePageNavigation('/about')}
+                  className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
+                >
+                  About InterQ
+                </Link>
               </li>
             </ul>
           </div>
@@ -46,10 +81,22 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-6">Legal</h4>
             <ul className="space-y-4">
               <li>
-                <Link to="/privacy" className="text-gray-500 hover:text-indigo-600 text-sm transition-colors">Privacy Policy</Link>
+                <Link 
+                  to="/privacy" 
+                  onClick={handleSamePageNavigation('/privacy')}
+                  className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
+                >
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-gray-500 hover:text-indigo-600 text-sm transition-colors">Terms & Conditions</Link>
+                <Link 
+                  to="/terms" 
+                  onClick={handleSamePageNavigation('/terms')}
+                  className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
+                >
+                  Terms & Conditions
+                </Link>
               </li>
               <li>
                 <div className="flex items-center gap-2 text-[10px] text-emerald-600 font-bold uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded-md w-fit">

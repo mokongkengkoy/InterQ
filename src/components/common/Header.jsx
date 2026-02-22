@@ -2,9 +2,11 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
+import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
   const location = useLocation();
+  const { isDark, toggleTheme } = useTheme();
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -43,11 +45,20 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-colors"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            <SafeIcon icon={isDark ? FiIcons.FiSun : FiIcons.FiMoon} className="text-lg" />
+          </button>
           <a 
             href="https://github.com/opensourcekingprojects/InterQ" 
             target="_blank" 
             rel="noreferrer" 
-            className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-900 text-white text-sm font-bold rounded-xl hover:bg-gray-800 transition-all"
+            className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-slate-700 text-white text-sm font-bold rounded-xl hover:bg-gray-800 dark:hover:bg-slate-600 transition-all"
           >
             <SafeIcon icon={FiIcons.FiGithub} /> GitHub
           </a>

@@ -76,7 +76,7 @@ const Summary = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <button onClick={() => navigate('/')} className="flex-1 py-4 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 transition-all shadow-lg">
+              <button onClick={() => navigate('/')} className="flex-1 py-4 rounded-xl bg-gray-900 dark:bg-slate-700 text-white font-bold hover:bg-gray-800 dark:hover:bg-slate-600 transition-all shadow-lg">
                 Finish & Exit
               </button>
               <button 

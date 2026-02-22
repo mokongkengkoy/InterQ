@@ -96,7 +96,7 @@ const JobCard = ({ role, onSelect }) => {
 
         <button
           onClick={() => onSelect(role, duration, roundType, qCount)}
-          className="w-full py-3 rounded-xl bg-gray-900 text-white font-bold text-sm hover:bg-indigo-600 transition-all flex items-center justify-center gap-2 group/btn"
+          className="w-full py-3 rounded-xl bg-gray-900 dark:bg-slate-700 text-white font-bold text-sm hover:bg-indigo-600 dark:hover:bg-indigo-500 transition-all flex items-center justify-center gap-2 group/btn"
         >
           {roundType === 'hr' ? 'Start HR Interview' : 'Start Technical Session'}
           <SafeIcon icon={FiIcons.FiArrowRight} className="group-hover/btn:translate-x-1 transition-transform" />

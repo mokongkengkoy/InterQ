@@ -1,26 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
 
 const Footer = () => {
-  const location = useLocation();
   const { FiMessageSquare, FiShield, FiHeart } = FiIcons;
-  const handleSamePageNavigation = (targetPath, sectionId) => (event) => {
-    if (location.pathname !== targetPath) return;
-
-    event.preventDefault();
-
-    if (sectionId) {
-      const sectionElement = document.getElementById(sectionId);
-      if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-    }
-
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  };
 
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8 px-6">
@@ -49,7 +33,6 @@ const Footer = () => {
                 <Link 
                   to="/" 
                   state={{ scrollTo: 'practice-roles' }} 
-                  onClick={handleSamePageNavigation('/', 'practice-roles')}
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Practice Roles
@@ -58,7 +41,6 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/tips" 
-                  onClick={handleSamePageNavigation('/tips')}
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Interview Tips
@@ -67,7 +49,6 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/about" 
-                  onClick={handleSamePageNavigation('/about')}
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   About InterQ
@@ -83,7 +64,6 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/privacy" 
-                  onClick={handleSamePageNavigation('/privacy')}
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Privacy Policy
@@ -92,7 +72,6 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/terms" 
-                  onClick={handleSamePageNavigation('/terms')}
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Terms & Conditions

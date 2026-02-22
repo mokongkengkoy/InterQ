@@ -30,29 +30,28 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-6">Platform</h4>
             <ul className="space-y-4">
               <li>
-                <Link 
-                  to="/" 
-                  state={{ scrollTo: 'practice-roles' }} 
+                <a
+                  href="#/?scrollTo=practice-roles"
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Practice Roles
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/tips" 
+                <a
+                  href="#/tips"
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Interview Tips
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/about" 
+                <a
+                  href="#/about"
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   About InterQ
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -62,20 +61,20 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-6">Legal</h4>
             <ul className="space-y-4">
               <li>
-                <Link 
-                  to="/privacy" 
+                <a
+                  href="#/privacy"
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Privacy Policy
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/terms" 
+                <a
+                  href="#/terms"
                   className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
                 >
                   Terms & Conditions
-                </Link>
+                </a>
               </li>
               <li>
                 <div className="flex items-center gap-2 text-[10px] text-emerald-600 font-bold uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded-md w-fit">
